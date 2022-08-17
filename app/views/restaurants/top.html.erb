@@ -1,0 +1,11 @@
+<h1>Here are the 5 stars restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= restaurant.name %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "back restaurants", restaurants_path, class: "btn btn-warning" %>

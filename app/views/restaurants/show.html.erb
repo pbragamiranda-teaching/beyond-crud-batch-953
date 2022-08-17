@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @restaurant %>
+
+<h4>Check our reviews</h4>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %>
+     <%= link_to "delete review", review_path(review),
+     data: {turbo_method: :delete, turbo_confirm: "U sure?"} %>
+
+  </p>
+<% end %>
+
+
+<div>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"  %>
+  <%= link_to "Check out our chef!", chef_restaurant_path(@restaurant), class: "btn btn-primary"  %>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
+  <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %>
+
+  <%= button_to "Destroy this restaurant", @restaurant, method: :delete, class: "btn btn-danger mt-2" %>
+</div>
